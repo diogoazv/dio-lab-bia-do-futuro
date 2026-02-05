@@ -11,7 +11,7 @@
 | `perfil_usuario.json` | JSON | Armazenar informações financeiras básicas, como renda mensal e objetivo principal |
 
 > ℹ️ **Observação**  
-> Arquivos não utilizados no MVP, como histórico de atendimento, perfil de investidor e produtos financeiros, foram mantidos em uma pasta separada (`extras/`) para possível uso futuro.
+> Alguns arquivos não utilizados no MVP, como histórico de atendimento, perfil de investidor e produtos financeiros, foram mantidos na mesma pasta para possível uso futuro.
 
 ---
 
