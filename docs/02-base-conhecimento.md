@@ -2,54 +2,53 @@
 
 ## Dados Utilizados
 
-Descreva se usou os arquivos da pasta `data`, por exemplo:
-
 | Arquivo | Formato | Utilização no Agente |
 |---------|---------|---------------------|
-| `historico_atendimento.csv` | CSV | Contextualizar interações anteriores |
-| `perfil_investidor.json` | JSON | Personalizar recomendações |
-| `produtos_financeiros.json` | JSON | Sugerir produtos adequados ao perfil |
-| `transacoes.csv` | CSV | Analisar padrão de gastos do cliente |
+| `transacoes.csv` | CSV | Analisar receitas e despesas mensais, identificar padrões de gastos e calcular totais |
+| `categorias.json` | JSON | Definir categorias de gastos e classificar despesas como fixas ou variáveis |
+| `regras_gastos.json` | JSON | Aplicar regras simples de educação financeira (ex: limites percentuais por categoria) |
+| `dicas.json` | JSON | Fornecer mensagens e orientações padronizadas para o usuário |
+| `perfil_usuario.json` | JSON | Armazenar informações financeiras básicas, como renda mensal e objetivo principal |
 
-> [!TIP]
-> **Quer um dataset mais robusto?** Você pode utilizar datasets públicos do [Hugging Face](https://huggingface.co/datasets) relacionados a finanças, desde que sejam adequados ao contexto do desafio.
+> ℹ️ **Observação**  
+> Arquivos não utilizados no MVP, como histórico de atendimento, perfil de investidor e produtos financeiros, foram mantidos em uma pasta separada (`extras/`) para possível uso futuro.
 
 ---
 
 ## Adaptações nos Dados
 
-> Você modificou ou expandiu os dados mockados? Descreva aqui.
-
-[Sua descrição aqui]
+Os dados mockados foram **adaptados para o contexto de um consultor de gastos mensais**.  
+Informações relacionadas a investimentos, produtos financeiros e perfil de risco foram removidas do fluxo principal do agente, mantendo apenas dados essenciais para organização financeira e controle de despesas.
 
 ---
 
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
-> Descreva como seu agente acessa a base de conhecimento.
-
-[ex: Os JSON/CSV são carregados no início da sessão e incluídos no contexto do prompt]
+Os arquivos CSV e JSON são carregados localmente no início da execução da aplicação a partir da pasta `data/`.  
+Esses dados são processados antes de serem utilizados pelo agente.
 
 ### Como os dados são usados no prompt?
-> Os dados vão no system prompt? São consultados dinamicamente?
-
-[Sua descrição aqui]
+Os arquivos não são enviados de forma bruta ao modelo.  
+A aplicação gera **resumos financeiros**, **totais por categoria** e **alertas baseados em regras**, que são inseridos dinamicamente no contexto do prompt para orientar as respostas do agente.
 
 ---
 
 ## Exemplo de Contexto Montado
 
-> Mostre um exemplo de como os dados são formatados para o agente.
+```text
+Resumo Financeiro do Usuário:
+- Renda mensal: R$ 5.000
+- Total de gastos no mês: R$ 2.488,90
+- Percentual da renda comprometida: 49,7%
 
-```
-Dados do Cliente:
-- Nome: João Silva
-- Perfil: Moderado
-- Saldo disponível: R$ 5.000
+Gastos por categoria:
+- Moradia: R$ 1.380,00
+- Alimentação: R$ 570,00
+- Transporte: R$ 295,00
+- Lazer: R$ 55,90
+- Saúde: R$ 188,00
 
-Últimas transações:
-- 01/11: Supermercado - R$ 450
-- 03/11: Streaming - R$ 55
-...
-```
+Alertas:
+- Gastos com moradia próximos do limite recomendado
+- Situação financeira dentro do orçamento
