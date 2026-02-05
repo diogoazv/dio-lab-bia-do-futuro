@@ -55,6 +55,18 @@ DADOS DO CLIENTE:
   "objetivo_principal": "Controlar gastos mensais"
 }
 
+CATEGORIAS:
+{
+  "categorias": {
+    "moradia": "fixo",
+    "alimentacao": "variavel",
+    "transporte": "variavel",
+    "lazer": "variavel",
+    "saude": "variavel",
+    "receita": "entrada"
+  }
+}
+
 TRANSACOES DO CLIENTE:
 
 
