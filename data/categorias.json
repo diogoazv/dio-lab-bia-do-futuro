@@ -1,0 +1,10 @@
+{
+  "categorias": {
+    "moradia": "fixo",
+    "alimentacao": "variavel",
+    "transporte": "variavel",
+    "lazer": "variavel",
+    "saude": "variavel",
+    "receita": "entrada"
+  }
+}
