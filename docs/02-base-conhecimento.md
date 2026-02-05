@@ -47,6 +47,13 @@ with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
 
 ```text
 DADOS DO CLIENTE:
+{
+  "nome": "João Silva",
+  "idade": 32,
+  "profissao": "Analista de Sistemas",
+  "renda_mensal": 5000.00,
+  "objetivo_principal": "Controlar gastos mensais"
+}
 
 TRANSACOES DO CLIENTE:
 
