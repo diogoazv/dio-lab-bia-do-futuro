@@ -25,12 +25,34 @@ Informações relacionadas a investimentos, produtos financeiros e perfil de ris
 ## Estratégia de Integração
 
 ### Como os dados são carregados?
+> Descreva como seu agente acessa a base de conhecimento
 Os arquivos CSV e JSON são carregados localmente no início da execução da aplicação a partir da pasta `data/`.  
 Esses dados são processados antes de serem utilizados pelo agente.
 
+```python
+import pandas as pd
+import json
+
+# CSVs
+historico = pd.read_csv('data/historico_atendimento.csv')
+transacoes = ped_read_csv('data/transacoes.csv')
+
+# JSONs
+with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
+    produtos = json.load(f)
+```
+
 ### Como os dados são usados no prompt?
-Os arquivos não são enviados de forma bruta ao modelo.  
-A aplicação gera **resumos financeiros**, **totais por categoria** e **alertas baseados em regras**, que são inseridos dinamicamente no contexto do prompt para orientar as respostas do agente.
+> Os dados vao no system prompt? Sao consultadas dinamicamente?
+
+```text
+DADOS DO CLIENTE:
+
+TRANSACOES DO CLIENTE:
+
+
+```
+
 
 ---
 
