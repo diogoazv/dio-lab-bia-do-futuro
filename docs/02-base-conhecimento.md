@@ -45,8 +45,10 @@ with open('data/perfil_investidor.json', 'r', encoding='utf-8') as f:
 ### Como os dados são usados no prompt?
 > Os dados vao no system prompt? Sao consultadas dinamicamente?
 
+Para simplificar, podemos simplismente "injetar" os dados em nosso prompt, garantindo que a gente tenha o melhor contexto possivel. lembrando que, em solucoes mais robustas, o ideal e que essas solucoes sejam carregadas dinamicamente para que possamos ganhar flexibilidade.
+
 ```text
-DADOS DO CLIENTE:
+DADOS DO CLIENTE (data/perfil_usuario.json):
 {
   "nome": "João Silva",
   "idade": 32,
@@ -55,7 +57,7 @@ DADOS DO CLIENTE:
   "objetivo_principal": "Controlar gastos mensais"
 }
 
-CATEGORIAS:
+CATEGORIAS (data/categorias.json):
 {
   "categorias": {
     "moradia": "fixo",
@@ -67,7 +69,7 @@ CATEGORIAS:
   }
 }
 
-TRANSACOES DO CLIENTE:
+TRANSACOES DO CLIENTE (data/transacoes.csv):
 data,descricao,categoria,valor,tipo
 2025-10-01,Salário,receita,5000.00,entrada
 2025-10-02,Aluguel,moradia,1200.00,saida
@@ -80,13 +82,21 @@ data,descricao,categoria,valor,tipo
 2025-10-20,Academia,saude,99.00,saida
 2025-10-25,Combustível,transporte,250.00,saida
 
-
+GASTOS DO CLIENTE (data/regras_gastos.json):
+{
+  "aluguel_maximo_percentual": 0.30,
+  "lazer_maximo_percentual": 0.15,
+  "reserva_minima_percentual": 0.10
+}
 ```
 
 
 ---
 
 ## Exemplo de Contexto Montado
+> Mostre um exemplo de como os dados sao formatados para o agente.
+
+O exemplo de contexto montado abaixo, se baseia nos dados originais da base de conhecimento, mas os sintetiza deixando apenas as informacoes mais relevantes, otimizando assim o consumo de tokens. Entretanto, vale lembrar que mais importante do que economizar tokens, é ter todas as informacoes relevantes disponiveis em seu contexto.
 
 ```text
 Resumo Financeiro do Usuário:
