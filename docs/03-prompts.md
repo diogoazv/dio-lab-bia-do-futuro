@@ -139,5 +139,4 @@ e te ajudar a se organizar financeiramente antes de investir.
 
 > Registre aqui ajustes que você fez nos prompts e por quê.
 
-- [Observação 1]
-- [Observação 2]
+- Registramos que em diferentes LLMs por exemplo, ChatGPT, Copilot e claud o comportamento e resposta nao sao iguais, mas sao parecidas com o mesmo System Prompt.
