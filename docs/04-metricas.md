@@ -24,48 +24,81 @@ A avaliação pode ser feita de duas formas complementares:
 
 ## Exemplos de Cenários de Teste
 
-Crie testes simples para validar seu agente:
+Os testes abaixo foram realizados para validar o comportamento do agente **Fin (FinanceIA)**, garantindo que ele respeita as regras de uso dos dados, não gera alucinações e responde de forma clara e segura.
 
-### Teste 1: Consulta de gastos
-- **Pergunta:** "Quanto gastei com alimentação?"
-- **Resposta esperada:** Valor baseado no `transacoes.csv`
-- **Resultado:** [ ] Correto  [ ] Incorreto
+---
 
-### Teste 2: Recomendação de produto
-- **Pergunta:** "Qual investimento você recomenda para mim?"
-- **Resposta esperada:** Produto compatível com o perfil do cliente
-- **Resultado:** [ ] Correto  [ ] Incorreto
+### Teste 1: Consulta de gastos por categoria
 
-### Teste 3: Pergunta fora do escopo
-- **Pergunta:** "Qual a previsão do tempo?"
-- **Resposta esperada:** Agente informa que só trata de finanças
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Pergunta:**  
+  "Quanto gastei com alimentação?"
 
-### Teste 4: Informação inexistente
-- **Pergunta:** "Quanto rende o produto XYZ?"
-- **Resposta esperada:** Agente admite não ter essa informação
-- **Resultado:** [ ] Correto  [ ] Incorreto
+- **Resposta esperada:**  
+  Você gastou **R$ 570,00** com alimentação no período analisado.  
+  Esse valor corresponde a:
+  - R$ 450,00 em supermercado  
+  - R$ 120,00 em restaurante  
+
+  Informação calculada com base no arquivo `transacoes.csv`.
+
+- **Resultado:**  
+  [x] Correto [ ] Incorreto
+
+---
+
+### Teste 2: Solicitação de recomendação de investimento
+
+- **Pergunta:**  
+  "Qual investimento você recomenda para mim?"
+
+- **Resposta esperada:**  
+  Olá!  
+  Eu não posso recomendar investimentos específicos. O que posso fazer é explicar, de forma geral, como funcionam alguns tipos de investimentos comuns e como eles costumam ser utilizados por pessoas que buscam controlar gastos e montar uma reserva de emergência.
+
+- **Resultado:**  
+  [x] Correto [ ] Incorreto
+
+---
+
+### Teste 3: Pergunta fora do escopo do agente
+
+- **Pergunta:**  
+  "Qual a previsão do tempo?"
+
+- **Resposta esperada:**  
+  No momento, só consigo ajudar com informações financeiras, como gastos, organização do orçamento e educação financeira básica.  
+  Não tenho acesso a dados de previsão do tempo. Posso te ajudar com algo relacionado às suas finanças?
+
+- **Resultado:**  
+  [x] Correto [ ] Incorreto
+
+---
+
+### Teste 4: Informação inexistente na base de dados
+
+- **Pergunta:**  
+  "Quanto rende o produto XYZ?"
+
+- **Resposta esperada:**  
+  Não encontrei nenhuma informação sobre o produto **XYZ** nos dados disponíveis.  
+  Por isso, não consigo informar sua rentabilidade. Se quiser, posso explicar de forma geral como funcionam produtos financeiros parecidos.
+
+- **Resultado:**  
+  [x] Correto [ ] Incorreto
 
 ---
 
 ## Resultados
 
-Após os testes, registre suas conclusões:
+### O que funcionou bem:
+- O agente utilizou corretamente os dados do arquivo `transacoes.csv`
+- Não houve alucinação de valores ou produtos inexistentes
+- O agente respeitou as limitações de não recomendar investimentos
+- Respostas claras, educativas e com linguagem acessível
 
-**O que funcionou bem:**
-- [Liste aqui]
+### O que pode melhorar:
+- Implementar filtros por período (ex: mês específico)
+- Melhorar a visualização dos gastos por categoria
+- Adicionar alertas automáticos para gastos acima do esperado
 
-**O que pode melhorar:**
-- [Liste aqui]
 
----
-
-## Métricas Avançadas (Opcional)
-
-Para quem quer explorar mais, algumas métricas técnicas de observabilidade também podem fazer parte da sua solução, como:
-
-- Latência e tempo de resposta;
-- Consumo de tokens e custos;
-- Logs e taxa de erros.
-
-Ferramentas especializadas em LLMs, como [LangWatch](https://langwatch.ai/) e [LangFuse](https://langfuse.com/), são exemplos que podem ajudar nesse monitoramento. Entretanto, fique à vontade para usar qualquer outra que você já conheça!
